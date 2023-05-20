@@ -1,0 +1,22 @@
+.headerBar {
+  height: 10%;
+  display: flex;
+}
+
+.headerImageContainer {
+  width: 40%;
+  align-items: left;
+  display: flex;
+}
+
+.headerImage {
+  width: 50%;
+  align-items: left;
+}
+
+.loginButton {
+  background-color: aliceblue;
+  border: 0px;
+  width: 20%;
+  font-size: large;
+}

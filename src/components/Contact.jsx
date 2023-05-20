@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Contact() {
-  const [stateObj, setStateObj] = useState({
+  const emptyStateObj = {
     fullName: "",
     emailAddress: "",
     phoneNum: "",
@@ -14,7 +14,8 @@ export default function Contact() {
     stateCounty: "",
     postcode: "",
     country: "",
-  });
+  };
+  const [stateObj, setStateObj] = useState(emptyStateObj);
 
   const [phone2isOn, setPhone2isOn] = useState(false);
   const [addressIsOn, setAddressIsOn] = useState(false);
@@ -146,9 +147,12 @@ export default function Contact() {
       )
         .then((res) => {
           console.log(res);
+          setStateObj(emptyStateObj);
+          alert("Your message has been sent!");
         })
         .catch(function (error) {
           console.log(error);
+          alert("Something went wrong. Try again later...");
         });
     }
   }

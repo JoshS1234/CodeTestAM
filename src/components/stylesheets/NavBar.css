@@ -1,0 +1,11 @@
+.navBarContainer {
+  width: 50%;
+  padding: 1%;
+}
+
+.linkButton {
+  padding: 2%;
+  margin: 5% 5% 5% 5%;
+  color: black;
+  height: 100%;
+}
