@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Contact() {
   const [stateObj, setStateObj] = useState({
@@ -43,8 +44,8 @@ export default function Contact() {
       }
     }
 
-    if (formData.phoneNum2.length > 0) {
-      if (!/^\+?[0-9]{1,20}$/.test(formData.phoneNum)) {
+    if (phone2isOn) {
+      if (!/^\+?[0-9]{1,20}$/.test(formData.phoneNum2)) {
         errorMessage += "enter a valid (second) phone number \n";
         validDetails = false;
       }
@@ -98,21 +99,57 @@ export default function Contact() {
     if (!validDetails) {
       alert(errorMessage);
     } else {
-      const requestObj = {
-        FullName: stateObj.fullName,
-        EmailAddress: stateObj.emailAddress,
-        PhoneNumbers: [stateObj.phoneNum, stateObj.phoneNum2],
-        Message: stateObj.message,
-        bIncludeAddressDetails: addressIsOn,
-        AddressDetails: {
-          AddressLine1: stateObj.address1,
-          AddressLine2: stateObj.address2,
-          CityTown: stateObj.city,
-          StateCounty: stateObj.stateCounty,
-          Postcode: stateObj.postcode,
-          Country: stateObj.country,
-        },
-      };
+      let phoneArr = [];
+      if (phone2isOn) {
+        phoneArr = [stateObj.phoneNum, stateObj.phoneNum2];
+      } else {
+        phoneArr = [stateObj.phoneNum];
+      }
+
+      let requestObj = {};
+
+      if (addressIsOn) {
+        requestObj = {
+          FullName: stateObj.fullName,
+          EmailAddress: stateObj.emailAddress,
+          PhoneNumbers: phoneArr,
+          Message: stateObj.message,
+          bIncludeAddressDetails: addressIsOn,
+          AddressDetails: {
+            AddressLine1: stateObj.address1,
+            AddressLine2: stateObj.address2,
+            CityTown: stateObj.city,
+            StateCounty: stateObj.stateCounty,
+            Postcode: stateObj.postcode,
+            Country: stateObj.country,
+          },
+        };
+      } else {
+        requestObj = {
+          FullName: stateObj.fullName,
+          EmailAddress: stateObj.emailAddress,
+          PhoneNumbers: phoneArr,
+          Message: stateObj.message,
+          bIncludeAddressDetails: addressIsOn,
+        };
+      }
+
+      console.log(requestObj);
+
+      fetch(
+        "https://interview-assessment.api.avamae.co.uk/api/v1/contact-us/submit",
+        {
+          method: "POST",
+          body: JSON.stringify(requestObj),
+          headers: { "Content-Type": "application/json-patch+json" },
+        }
+      )
+        .then((res) => {
+          console.log(res);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
   }
 
