@@ -164,9 +164,7 @@ export default function Contact() {
         }
       )
         .then((res) => {
-          console.log(res);
           setStateObj(emptyStateObj);
-          alert("Your message has been sent!");
         })
         .then(() => {
           setSubmissionIsSuccess(true);
@@ -193,7 +191,11 @@ export default function Contact() {
           <h1>Contact us</h1>
           <p>{randomSentence}</p>
           <div id="messageTextbox">
-            <img src={tick} id="validTick" />
+            <img
+              src={tick}
+              id="validTick"
+              alt="a tick symbol to show that form submission has occurred"
+            />
             <h3>Your message has been sent</h3>
             <p>We will be in contact with you within 24 hours</p>
           </div>
