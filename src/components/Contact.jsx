@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import bigLogo from "../resources/Img_Contact.png";
 import "./stylesheets/Contact.css";
 import { LoremIpsum } from "lorem-ipsum";
+import tick from "../resources/Icon_Valid.svg";
 
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
@@ -33,6 +34,11 @@ export default function Contact() {
 
   const [phone2isOn, setPhone2isOn] = useState(false);
   const [addressIsOn, setAddressIsOn] = useState(false);
+  const [submissionIsSuccess, setSubmissionIsSuccess] = useState(false);
+
+  useEffect(() => {
+    setSubmissionIsSuccess(false);
+  }, []);
 
   function dataChecks(formData) {
     let errorMessage = "";
@@ -163,7 +169,7 @@ export default function Contact() {
           alert("Your message has been sent!");
         })
         .then(() => {
-          window.location.href = "/submission-complete";
+          setSubmissionIsSuccess(true);
         })
         .catch(function (error) {
           console.log(error);
@@ -180,8 +186,24 @@ export default function Contact() {
 
   useEffect(() => {}, [phone2isOn, addressIsOn]);
 
-  return (
-    <div id="contactPageContainer">
+  const submissionCompleteResult = () => {
+    return (
+      <div id="messageContainer">
+        <div id="contactSubmittedFormIntro">
+          <h1>Contact us</h1>
+          <p>{randomSentence}</p>
+          <div id="messageTextbox">
+            <img src={tick} id="validTick" />
+            <h3>Your message has been sent</h3>
+            <p>We will be in contact with you within 24 hours</p>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const formToFill = () => {
+    return (
       <div id="formContainer">
         <div id="contactFormIntro">
           <h1>Contact us</h1>
@@ -350,6 +372,12 @@ export default function Contact() {
           <input type="submit" name="submit" id="submitButton" />
         </form>
       </div>
+    );
+  };
+
+  return (
+    <div id="contactPageContainer">
+      {submissionIsSuccess ? submissionCompleteResult() : formToFill()}
       <div
         id="contactImageContainer"
         style={{

@@ -6,7 +6,6 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import NotFound from "./components/NotFound";
 import FooterBar from "./components/FooterBar";
-import ContactComplete from "./components/ContactComplete";
 
 function App() {
   return (
@@ -16,7 +15,6 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/contact-us" element={<Contact />} />
-        <Route path="/submission-complete" element={<ContactComplete />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <FooterBar />

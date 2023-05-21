@@ -112,12 +112,56 @@
   color: white;
 }
 
+#contactSubmittedPageContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+#messageContainer {
+  width: 50%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#contactSubmittedImageContainer {
+  width: 50%;
+}
+
+#contactSubmittedFormIntro {
+  padding: 5%;
+  text-align: left;
+}
+
+#messageTextbox {
+  background-color: rgb(172, 255, 170);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3%;
+}
+
+#validTick {
+  width: 5%;
+}
+
 @media (max-width: 700px) {
   #contactImageContainer {
     display: none;
   }
 
   #formContainer {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #contactSubmittedImageContainer {
+    display: none;
+  }
+
+  #messageContainer {
     width: 100%;
     align-items: center;
     display: flex;
