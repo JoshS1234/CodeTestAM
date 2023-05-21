@@ -11,10 +11,11 @@
 }
 
 #box2TextContainer {
-  width: 50%;
+  width: 30%;
   align-items: center;
   justify-content: space-around;
   margin: 5%;
+  text-align: left;
 }
 
 #box2ImageContainer {

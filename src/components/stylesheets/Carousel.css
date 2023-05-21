@@ -8,7 +8,8 @@
 
 .carouselButton {
   padding: 10px;
-  background-color: aliceblue;
+  color: white;
+  background-color: rgba(0, 120, 255, 1);
   border: 0px;
   border-radius: 10%;
   font-size: large;

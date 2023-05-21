@@ -1,5 +1,12 @@
 import React from "react";
+import "./stylesheets/FooterBar.css";
 
 export default function FooterBar() {
-  return <h1>This is the Footer bar</h1>;
+  return (
+    <div id="footerBar">
+      <p id="footerText">
+        Website Development by <u>AVAMAE</u>
+      </p>
+    </div>
+  );
 }

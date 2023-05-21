@@ -1,8 +1,11 @@
 .headerBar {
   height: 10%;
   display: flex;
+  flex-direction: row;
   border-bottom: 1px solid;
   border-color: rgba(0, 0, 0, 0.3);
+  justify-content: space-around;
+  align-items: center;
 }
 
 .headerImageContainer {
@@ -15,11 +18,4 @@
   width: 50%;
   display: flex;
   align-items: right;
-}
-
-.loginButton {
-  background-color: aliceblue;
-  border: 0px;
-  width: 20%;
-  font-size: large;
 }

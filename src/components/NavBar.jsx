@@ -16,6 +16,7 @@ export default function NavBar() {
       <Link to="/contact-us" className="linkButton">
         Contact us
       </Link>
+      <input type="button" name="Login" value="Login" id="loginButton" />
     </nav>
   );
 }

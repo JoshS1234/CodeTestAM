@@ -1,5 +1,19 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import bigLogo from "../resources/Img_Contact.png";
+import "./stylesheets/Contact.css";
+import { LoremIpsum } from "lorem-ipsum";
+
+const lorem = new LoremIpsum({
+  sentencesPerParagraph: {
+    max: 8,
+    min: 4,
+  },
+  wordsPerSentence: {
+    max: 16,
+    min: 4,
+  },
+});
+const randomSentence = lorem.generateSentences(1);
 
 export default function Contact() {
   const emptyStateObj = {
@@ -166,131 +180,170 @@ export default function Contact() {
   useEffect(() => {}, [phone2isOn, addressIsOn]);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Full name:{" "}
-        <input
-          type="text"
-          value={stateObj.fullName}
-          onChange={(e) => handleChange(e)}
-          name="fullName"
-        />
-      </label>
-      <label>
-        Email address:{" "}
-        <input
-          type="text"
-          value={stateObj.emailAddress}
-          onChange={(e) => handleChange(e)}
-          name="emailAddress"
-        />
-      </label>
-      <label>
-        Phone number 01 (optional):{" "}
-        <input
-          type="text"
-          value={stateObj.phoneNum}
-          onChange={(e) => handleChange(e)}
-          name="phoneNum"
-        />
-      </label>
-      <input
-        value="phone number 2?"
-        type="button"
-        onClick={() => {
-          setPhone2isOn(!phone2isOn);
-        }}
-      />
-      {phone2isOn && (
-        <label>
-          Phone number 02 (optional):{" "}
-          <input
-            type="text"
-            value={stateObj.phoneNum2}
-            onChange={(e) => handleChange(e)}
-            name="phoneNum2"
-          />
-        </label>
-      )}
-      <label>
-        Message:{" "}
-        <input
-          type="text"
-          value={stateObj.message}
-          onChange={(e) => handleChange(e)}
-          name="message"
-        />
-      </label>
-
-      <input
-        value="address"
-        type="button"
-        onClick={() => {
-          setAddressIsOn(!addressIsOn);
-        }}
-      />
-
-      {addressIsOn && (
-        <div>
-          <label>
-            Address line 1:{" "}
-            <input
-              type="text"
-              value={stateObj.address1}
-              onChange={(e) => handleChange(e)}
-              name="address1"
-            />
-          </label>
-          <label>
-            Address line 2:{" "}
-            <input
-              type="text"
-              value={stateObj.address2}
-              onChange={(e) => handleChange(e)}
-              name="address2"
-            />
-          </label>
-          <label>
-            City/Town:{" "}
-            <input
-              type="text"
-              value={stateObj.city}
-              onChange={(e) => handleChange(e)}
-              name="city"
-            />
-          </label>
-          <label>
-            State/County:{" "}
-            <input
-              type="text"
-              value={stateObj.stateCounty}
-              onChange={(e) => handleChange(e)}
-              name="stateCounty"
-            />
-          </label>
-          <label>
-            Postcode:{" "}
-            <input
-              type="text"
-              value={stateObj.postcode}
-              onChange={(e) => handleChange(e)}
-              name="postcode"
-            />
-          </label>
-          <label>
-            Country:{" "}
-            <input
-              type="text"
-              value={stateObj.country}
-              onChange={(e) => handleChange(e)}
-              name="country"
-            />
-          </label>
+    <div id="contactPageContainer">
+      <div id="formContainer">
+        <div id="contactFormIntro">
+          <h1>Contact us</h1>
+          <p>{randomSentence}</p>
         </div>
-      )}
-      <label>
-        <input type="submit" name="submit" />
-      </label>
-    </form>
+        <form onSubmit={handleSubmit} id="dataForm">
+          <div id="nameEmail">
+            <label className="dataInput2">
+              Full name:
+              <input
+                className="textInputBox"
+                type="text"
+                value={stateObj.fullName}
+                onChange={(e) => handleChange(e)}
+                name="fullName"
+              />
+            </label>
+            <label className="dataInput2">
+              Email address:
+              <input
+                className="textInputBox"
+                type="text"
+                value={stateObj.emailAddress}
+                onChange={(e) => handleChange(e)}
+                name="emailAddress"
+              />
+            </label>
+          </div>
+          <div id="otherInfoInputs">
+            <label className="dataInput">
+              Phone number 01 (optional):
+              <input
+                className="textInputBox"
+                type="text"
+                value={stateObj.phoneNum}
+                onChange={(e) => handleChange(e)}
+                name="phoneNum"
+              />
+            </label>
+
+            {phone2isOn && (
+              <label className="dataInput">
+                Phone number 02 (optional):
+                <input
+                  className="textInputBox"
+                  type="text"
+                  value={stateObj.phoneNum2}
+                  onChange={(e) => handleChange(e)}
+                  name="phoneNum2"
+                />
+              </label>
+            )}
+            <input
+              className="optionButton"
+              value="Add new phone number"
+              type="button"
+              onClick={() => {
+                setPhone2isOn(!phone2isOn);
+              }}
+            />
+            <label className="dataInput">
+              Message:
+              <textarea
+                className="textInputBox"
+                id="messageInput"
+                type="textarea"
+                value={stateObj.message}
+                onChange={(e) => handleChange(e)}
+                name="message"
+              ></textarea>
+            </label>
+          </div>
+
+          <label className="optionCheckbox">
+            <input
+              value="address"
+              type="checkbox"
+              onClick={() => {
+                setAddressIsOn(!addressIsOn);
+              }}
+            />
+            <p>Add address details</p>
+          </label>
+
+          {addressIsOn && (
+            <div id="addressSection">
+              <div id="addressLines">
+                <label className="dataInput2">
+                  Address line 1:
+                  <input
+                    className="textInputBox"
+                    type="text"
+                    value={stateObj.address1}
+                    onChange={(e) => handleChange(e)}
+                    name="address1"
+                  />
+                </label>
+                <label className="dataInput2">
+                  Address line 2:{" "}
+                  <input
+                    className="textInputBox"
+                    type="text"
+                    value={stateObj.address2}
+                    onChange={(e) => handleChange(e)}
+                    name="address2"
+                  />
+                </label>
+              </div>
+              <label className="dataInput">
+                City/Town:{" "}
+                <input
+                  className="textInputBox"
+                  type="text"
+                  value={stateObj.city}
+                  onChange={(e) => handleChange(e)}
+                  name="city"
+                />
+              </label>
+              <label className="dataInput">
+                State/County:{" "}
+                <input
+                  className="textInputBox"
+                  type="text"
+                  value={stateObj.stateCounty}
+                  onChange={(e) => handleChange(e)}
+                  name="stateCounty"
+                />
+              </label>
+              <label className="dataInput">
+                Postcode:{" "}
+                <input
+                  className="textInputBox"
+                  type="text"
+                  value={stateObj.postcode}
+                  onChange={(e) => handleChange(e)}
+                  name="postcode"
+                />
+              </label>
+              <label className="dataInput">
+                Country:{" "}
+                <input
+                  className="textInputBox"
+                  type="text"
+                  value={stateObj.country}
+                  onChange={(e) => handleChange(e)}
+                  name="country"
+                />
+              </label>
+            </div>
+          )}
+
+          <input type="submit" name="submit" id="submitButton" />
+        </form>
+      </div>
+      <div
+        id="contactImageContainer"
+        style={{
+          backgroundImage: "url(" + bigLogo + ")",
+          backgroundPosition: "center",
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></div>
+    </div>
   );
 }

@@ -9,8 +9,7 @@ export default function HeaderBar() {
       <div className="headerImageContainer">
         <img src={companyLogo} className="headerImage" />
       </div>
-      <NavBar className="nav" />
-      <input type="button" name="Login" value="Login" classname="loginButton" />
+      <NavBar id="nav" />
     </div>
   );
 }

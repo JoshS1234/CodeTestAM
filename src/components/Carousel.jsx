@@ -39,7 +39,10 @@ export default function Carousel() {
           return (
             <SwiperSlide
               style={{
-                backgroundImage: "url(" + item.ImageUrl + ")",
+                backgroundImage:
+                  "linear-gradient(to left, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.6)), url(" +
+                  item.ImageUrl +
+                  ")",
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",

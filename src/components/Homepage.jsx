@@ -25,7 +25,7 @@ export default function Homepage() {
         <div id="box2TextContainer">
           <h3>{lorem.generateSentences(1)}</h3>
           <p>{lorem.generateSentences(5)}</p>
-          <ul>
+          <ul id="bulletpoints">
             <li>{lorem.generateWords(10)}</li>
             <li>{lorem.generateWords(15)}</li>
             <li>{lorem.generateWords(12)}</li>
