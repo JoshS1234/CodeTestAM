@@ -20,10 +20,11 @@
   align-items: right;
 }
 
-#loginButton {
-  background-color: aliceblue;
-  border: 0px;
-  width: 10%;
-  font-size: large;
-  padding: 1% 0% 1% 0%;
+@media (max-width: 700px) {
+  .headerImageContainer {
+    width: 100%;
+    align-items: right;
+    display: flex;
+    justify-content: space-around;
+  }
 }

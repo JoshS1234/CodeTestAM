@@ -30,7 +30,7 @@ export default function Homepage() {
             <li>{lorem.generateWords(15)}</li>
             <li>{lorem.generateWords(12)}</li>
           </ul>
-          <Link to="/">
+          <Link to="/about-us">
             <button id="box2button">Learn more</button>
           </Link>
         </div>

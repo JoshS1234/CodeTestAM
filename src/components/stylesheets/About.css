@@ -17,3 +17,9 @@
 #aboutImage {
   width: 40%;
 }
+
+@media (max-width: 700px) {
+  #aboutImage {
+    width: 80%;
+  }
+}
