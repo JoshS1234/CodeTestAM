@@ -111,3 +111,16 @@
   background-color: rgba(0, 100, 255, 0.7);
   color: white;
 }
+
+@media (max-width: 700px) {
+  #contactImageContainer {
+    display: none;
+  }
+
+  #formContainer {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+}

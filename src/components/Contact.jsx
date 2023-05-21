@@ -149,8 +149,6 @@ export default function Contact() {
         };
       }
 
-      console.log(requestObj);
-
       fetch(
         "https://interview-assessment.api.avamae.co.uk/api/v1/contact-us/submit",
         {
@@ -163,6 +161,9 @@ export default function Contact() {
           console.log(res);
           setStateObj(emptyStateObj);
           alert("Your message has been sent!");
+        })
+        .then(() => {
+          window.location.href = "/submission-complete";
         })
         .catch(function (error) {
           console.log(error);
@@ -233,14 +234,28 @@ export default function Contact() {
                 />
               </label>
             )}
-            <input
-              className="optionButton"
-              value="Add new phone number"
-              type="button"
-              onClick={() => {
-                setPhone2isOn(!phone2isOn);
-              }}
-            />
+            {phone2isOn ? (
+              <input
+                className="optionButton"
+                value="Hide second phone number"
+                type="button"
+                onClick={() => {
+                  setPhone2isOn(!phone2isOn);
+                  const newObject = { ...stateObj };
+                  newObject.phoneNum2 = "";
+                  setStateObj(newObject);
+                }}
+              />
+            ) : (
+              <input
+                className="optionButton"
+                value="Add new phone number"
+                type="button"
+                onClick={() => {
+                  setPhone2isOn(!phone2isOn);
+                }}
+              />
+            )}
             <label className="dataInput">
               Message:
               <textarea

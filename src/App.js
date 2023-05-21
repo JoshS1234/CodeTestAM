@@ -6,15 +6,9 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import NotFound from "./components/NotFound";
 import FooterBar from "./components/FooterBar";
+import ContactComplete from "./components/ContactComplete";
 
 function App() {
-  const refObj = {};
-  refObj["home"] = <h1>Homepage</h1>;
-  refObj["about"] = <h1>About us</h1>;
-  refObj["contact"] = <h1>Contact page</h1>;
-
-  const page = "contact";
-
   return (
     <div className="App">
       <HeaderBar />
@@ -22,6 +16,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/contact-us" element={<Contact />} />
+        <Route path="/submission-complete" element={<ContactComplete />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <FooterBar />
