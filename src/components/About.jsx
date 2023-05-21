@@ -17,7 +17,7 @@ export default function About() {
 
   return (
     <div id="aboutContainer">
-      <div id="text1">
+      <div className="aboutTextbox">
         <h1>About us</h1>
         <strong>
           <p>{lorem.generateSentences(1)}</p>
@@ -28,11 +28,10 @@ export default function About() {
       <div>
         <img src={officeImage} id="aboutImage" />
       </div>
-      <div>
+      <div className="aboutTextbox">
         <p>{lorem.generateParagraphs(2)}</p>
-      </div>
-      <div>
-        <h3>{lorem.generateWords(10)}</h3>
+
+        <h3>{lorem.generateWords(6)}</h3>
         <strong>
           <ul>
             <li>{lorem.generateWords(8)}</li>
@@ -41,11 +40,9 @@ export default function About() {
             <li>{lorem.generateWords(8)}</li>
           </ul>
         </strong>
-      </div>
-      <div>
+
         <p>{lorem.generateParagraphs(1)}</p>
-      </div>
-      <div>
+
         <p>{lorem.generateParagraphs(2)}</p>
       </div>
     </div>

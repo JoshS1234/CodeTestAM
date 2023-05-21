@@ -5,11 +5,11 @@
   padding: 3%;
 }
 
-#text1 {
+.aboutTextbox {
   justify-content: left;
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
   text-align: left;
   margin: 1%;
 }
