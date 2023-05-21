@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { LoremIpsum } from "lorem-ipsum";
 import Carousel from "./Carousel";
 import "../components/stylesheets/Homepage.css";
@@ -26,9 +26,9 @@ export default function Homepage() {
           <h3>{lorem.generateSentences(1)}</h3>
           <p>{lorem.generateSentences(5)}</p>
           <ul id="bulletpoints">
-            <li>{lorem.generateWords(10)}</li>
-            <li>{lorem.generateWords(15)}</li>
-            <li>{lorem.generateWords(12)}</li>
+            <li key="point1">{lorem.generateWords(10)}</li>
+            <li key="point2">{lorem.generateWords(15)}</li>
+            <li key="point3">{lorem.generateWords(12)}</li>
           </ul>
           <Link to="/about-us">
             <button id="box2button">Learn more</button>

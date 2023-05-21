@@ -34,10 +34,10 @@ export default function About() {
         <h3>{lorem.generateWords(6)}</h3>
         <strong>
           <ul>
-            <li>{lorem.generateWords(8)}</li>
-            <li>{lorem.generateWords(8)}</li>
-            <li>{lorem.generateWords(8)}</li>
-            <li>{lorem.generateWords(8)}</li>
+            <li key="list item 1">{lorem.generateWords(8)}</li>
+            <li key="list item 2">{lorem.generateWords(8)}</li>
+            <li key="list item 3">{lorem.generateWords(8)}</li>
+            <li key="list item 4">{lorem.generateWords(8)}</li>
           </ul>
         </strong>
 
