@@ -1,6 +1,7 @@
 import React from "react";
 import { LoremIpsum } from "lorem-ipsum";
-import officeImage from "../resources/shutterstock_1302552622.jpg";
+import officeImage from "../resources/shutterstock_696636346.jpg";
+import "../components/stylesheets/About.css";
 
 export default function About() {
   const lorem = new LoremIpsum({
@@ -15,14 +16,18 @@ export default function About() {
   });
 
   return (
-    <div>
-      <h1>About us</h1>
-      <div>
-        <h3>{lorem.generateSentences(2)}</h3>
-        <p>{lorem.generateParagraphs(2)}</p>
-        <p>{lorem.generateParagraphs(2)}</p>
+    <div id="aboutContainer">
+      <div id="text1">
+        <h1>About us</h1>
+        <strong>
+          <p>{lorem.generateSentences(1)}</p>
+        </strong>
+        <p>{lorem.generateSentences(10)}</p>
+        <p>{lorem.generateSentences(10)}</p>
       </div>
-      <img src={officeImage} />
+      <div>
+        <img src={officeImage} id="aboutImage" />
+      </div>
       <div>
         <p>{lorem.generateParagraphs(2)}</p>
       </div>

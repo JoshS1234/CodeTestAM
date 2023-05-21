@@ -1,17 +1,20 @@
 .headerBar {
   height: 10%;
   display: flex;
+  border-bottom: 1px solid;
+  border-color: rgba(0, 0, 0, 0.3);
 }
 
 .headerImageContainer {
   width: 40%;
-  align-items: left;
+  align-items: right;
   display: flex;
 }
 
 .headerImage {
   width: 50%;
-  align-items: left;
+  display: flex;
+  align-items: right;
 }
 
 .loginButton {
