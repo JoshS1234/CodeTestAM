@@ -1,12 +1,12 @@
 .navBarContainer {
-  width: 40%;
+  width: 60%;
   padding: 1% 0% 1% 0%;
+  align-items: center;
 }
 
 .linkButton {
   padding: 5%;
   color: black;
-  height: 100%;
   font-size: large;
   text-decoration: none;
 }

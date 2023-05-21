@@ -50,6 +50,12 @@ export default function Homepage() {
         <div id="box3TextContainer">
           <h3>{lorem.generateSentences(1)}</h3>
           <p>{lorem.generateParagraphs(1)}</p>
+          <input
+            type="button"
+            name="Login"
+            value="Login"
+            id="loginButtonInText"
+          />
         </div>
       </div>
       <div id="box4">
